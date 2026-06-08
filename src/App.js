@@ -88,6 +88,10 @@ const App = () => {
         questions and answers <br /> about login
       </h3>
       <div className="content">
+        {/* The key forces a remount when the edited item (or create mode)
+            changes, so QuestionForm re-seeds its inputs from initialValues. */}
+        {/* The `key` forces a remount when the edited item (or mode) changes so
+            the form's internal input state is re-seeded from `initialValues`. */}
         <QuestionForm
           key={editingId || 'new'}
           initialValues={editingQuestion}
