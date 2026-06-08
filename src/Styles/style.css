@@ -67,3 +67,93 @@ body{
   margin-left: 1rem;
   align-self: center;
 }
+/* ---- CRUD form ---- */
+.question-form {
+  border: 2px solid #eae6eb;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 1.5rem 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.question-form h4 {
+  margin-bottom: 0.75rem;
+}
+
+.question-form input,
+.question-form textarea {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #c9c4cb;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: #b4345c;
+  color: white;
+}
+
+.btn-secondary {
+  background: #eae6eb;
+  color: #102a42;
+}
+
+.form-error {
+  color: #b4345c;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty {
+  margin: 1.5rem;
+  color: #617d98;
+}
+
+/* ---- Item actions ---- */
+.question .actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  border: none;
+  outline: none;
+  width: 2rem;
+  height: 2rem;
+  background: #eae6eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #b4345c;
+  cursor: pointer;
+}
+
+/* ---- Keyboard focus indicators ---- */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.action-btn:focus-visible,
+.question button:focus-visible {
+  outline: 2px solid #102a42;
+  outline-offset: 2px;
+}
