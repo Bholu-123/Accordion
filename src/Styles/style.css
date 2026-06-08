@@ -148,3 +148,12 @@ body{
   color: #b4345c;
   cursor: pointer;
 }
+
+/* ---- Keyboard focus indicators ---- */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.action-btn:focus-visible,
+.question button:focus-visible {
+  outline: 2px solid #102a42;
+  outline-offset: 2px;
+}

@@ -8,6 +8,17 @@ import './Styles/style.css';
 // that CRUD changes survive a page reload.
 const STORAGE_KEY = 'accordion.questions';
 
+// A stored entry is only usable if it has a non-null id and string title/info.
+// This guards against stale or corrupted localStorage payloads that would
+// otherwise render blank cards or break edit/delete by id.
+const isValidQuestion = (item) =>
+  item &&
+  typeof item === 'object' &&
+  item.id !== undefined &&
+  item.id !== null &&
+  typeof item.title === 'string' &&
+  typeof item.info === 'string';
+
 // Read the initial list of questions. We prefer anything the user has already
 // saved in localStorage and fall back to the bundled seed data on first load.
 const getInitialQuestions = () => {
@@ -16,7 +27,14 @@ const getInitialQuestions = () => {
     if (stored) {
       const parsed = JSON.parse(stored);
       if (Array.isArray(parsed)) {
-        return parsed;
+        const valid = parsed.filter(isValidQuestion);
+        // Reject the payload if any entry was invalid or ids are not unique,
+        // since partial data would produce duplicate/undefined React keys.
+        const ids = valid.map((q) => q.id);
+        const hasUniqueIds = new Set(ids).size === ids.length;
+        if (valid.length === parsed.length && hasUniqueIds) {
+          return valid;
+        }
       }
     }
   } catch (error) {

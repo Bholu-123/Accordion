@@ -16,7 +16,7 @@ const Question = ({ title, info, onEdit, onDelete }) => {
                 <div className="actions">
                     <button
                         type="button"
-                        aria-label="edit question"
+                        aria-label={`Edit ${title}`}
                         className="action-btn"
                         onClick={onEdit}
                     >
@@ -24,7 +24,7 @@ const Question = ({ title, info, onEdit, onDelete }) => {
                     </button>
                     <button
                         type="button"
-                        aria-label="delete question"
+                        aria-label={`Delete ${title}`}
                         className="action-btn"
                         onClick={onDelete}
                     >
@@ -32,7 +32,8 @@ const Question = ({ title, info, onEdit, onDelete }) => {
                     </button>
                     <button
                         type="button"
-                        aria-label="toggle answer"
+                        aria-label={`${showInfo ? 'Collapse' : 'Expand'} answer for ${title}`}
+                        aria-expanded={showInfo}
                         onClick={() => setShowInfo(!showInfo)}
                     >
                         {showInfo ? <AiOutlineMinus /> : <AiOutlinePlus />}

@@ -45,7 +45,7 @@ test('DELETE: removes a question from the list', () => {
   render(<App />);
   const title = 'What is BankID?';
   const card = screen.getByText(title).closest('.question');
-  fireEvent.click(within(card).getByLabelText('delete question'));
+  fireEvent.click(within(card).getByLabelText(`Delete ${title}`));
 
   expect(screen.queryByText(title)).not.toBeInTheDocument();
 });
@@ -54,7 +54,7 @@ test('UPDATE: edits an existing question', () => {
   render(<App />);
   const title = 'What is BankID?';
   const card = screen.getByText(title).closest('.question');
-  fireEvent.click(within(card).getByLabelText('edit question'));
+  fireEvent.click(within(card).getByLabelText(`Edit ${title}`));
 
   // Form switches to edit mode and is pre-filled.
   expect(screen.getByText('Edit question')).toBeInTheDocument();
