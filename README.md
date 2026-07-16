@@ -19,6 +19,20 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+## End-to-end tests
+
+Playwright browser tests live in the `e2e/` directory, separate from the Jest/unit test setup.
+
+Before running the E2E suite for the first time, install the Chromium browser binary:
+
+### `npm run e2e:install`
+
+Run the E2E suite with:
+
+### `npm run test:e2e`
+
+Playwright starts the Create React App development server automatically through `playwright.config.js`, so you do not need to run `npm start` in a separate terminal.
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
